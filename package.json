@@ -1,0 +1,24 @@
+{
+  "name": "lowladb-angular",
+  "private": true,
+  "version": "0.0.1",
+  "description": "AngularJS integration for LowlaDB",
+  "repository": "https://github.com/lowla/lowladb-angular",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-jshint": "^0.11.1",
+    "grunt-contrib-uglify": "^0.8.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jscs": "^1.6.0",
+    "grunt-karma": "^0.10.1",
+    "karma": "^0.12.31",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-coverage": "^0.2.7",
+    "karma-mocha": "^0.1.10",
+    "mocha": "^2.2.1"
+  }
+}

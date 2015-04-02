@@ -1,0 +1,17 @@
+bower_components
+
+bower_components/angular/*
+!bower_components/angular/angular.js
+
+bower_components/angular-route/*
+!bower_components/angular-route/angular-route.js
+
+bower_components/todomvc-app-css/*
+!bower_components/todomvc-app-css/index.css
+
+bower_components/todomvc-common/*
+!bower_components/todomvc-common/base.css
+!bower_components/todomvc-common/base.js
+
+bower_components/lowladb/*
+!bower_components/lowladb/dist/lowladb.js

@@ -1,0 +1,10 @@
+{
+  "name": "lowladb-angular-example",
+  "dependencies": {
+    "angular": "^1.3.12",
+    "angular-route": "^1.3.12",
+    "todomvc-common": "^1.0.0",
+    "todomvc-app-css": "^1.0.1",
+    "lowladb": "^0.1"
+  }
+}

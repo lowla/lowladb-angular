@@ -1,0 +1,21 @@
+{
+  "name": "lowladb-angular",
+  "description": "AngularJS Integration for LowlaDB",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/lowladb-angular.js",
+  "ignore": [
+    "**/.*",
+    "src",
+    "tests",
+    "example",
+    "node_modules",
+    "bower_components",
+    "package.json",
+    "Gruntfile.js"
+  ],
+  "dependencies": {
+    "angular": "1.3.x || 1.4.x",
+    "lowladb": "0.1.x"
+  }
+}
