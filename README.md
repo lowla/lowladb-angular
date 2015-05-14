@@ -29,7 +29,7 @@ Then, add the `lowladb` module to your app's dependencies:
 angular.module('myApp', ['lowladb']);
 ```
 
-Now you can use the `$lowlaArray` and `$lowlaDefer` services in your AngularJS application.
+Now you can use the `$lowla`, `$lowlaArray`, `$lowlaDocument` and `$lowlaDefer` services in your AngularJS application.
 
 ## Overview
 
@@ -40,6 +40,32 @@ The `example/` folder includes a [TodoMVC](http://todomvc.com) implementation th
 `lowlaStorage` service (located [here](example/todomvc/js/services/todoStorage.js)) uses `$lowlaArray` to persist, 
 synchronize, and provide offline access to TODOs across multiple browsers via 
 [lowladb-node](https://github.com/lowladb/lowladb-node).
+
+## $lowla
+
+LowlaDB-Angular includes a provider for instances of LowlaDB.  You can configure the sync URL as well as other 
+Lowla configuration options via `angular.config`:
+ 
+```js
+angular
+  .module('myApp')
+  .config(lowlaConfig)
+  .run(appRun)
+  
+function lowlaConfig($lowlaProvider) {
+  // To set the sync URL (default is the current page's location):
+  $lowlaProvider.setLowlaUrl('http://lowla.io');
+  
+  // To set the LowlaDB configuration (default uses a Memory datastore):
+  $lowlaProvider.setConfig({ datastore: 'IndexedDB' });
+}
+
+function appRun($lowla) {
+  var docCollection = $lowla.collection('mydb', 'docs');
+  // ...
+}
+
+```
 
 ## $lowlaArray
 
@@ -75,6 +101,22 @@ function MyController($lowlaArray, $scope) {
 }
 ```
 
+## $lowlaDocument
+
+To synchronize a single document rather than a collection, use `$lowlaDocument`.  The returned object will be kept
+up-to-date via LowlaDB's live cursors.
+
+```js
+function MyEditController($lowlaDocument, $scope) {
+  // Pass the scope into $lowlaDocument to automatically clean up the live cursors when the scope is destroyed
+  $scope.editDoc = $lowlaDocument(someCollection.find({_id: '...'}), $scope);
+
+  $scope.saveDocument = function() {
+    someCollection.findAndModify({_id: $scope.editDoc._id}, $scope.editDoc);
+  };
+}
+```
+  
 ## $lowlaDefer
 
 The core LowlaDB library uses promises that are similar but not directly compatible with Angular's `$q` promise

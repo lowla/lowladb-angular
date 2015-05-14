@@ -1,7 +1,7 @@
 {
   "name": "lowladb-angular",
   "description": "AngularJS Integration for LowlaDB",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "main": "dist/lowladb-angular.js",
   "ignore": [
